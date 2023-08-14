@@ -1,7 +1,5 @@
-const { sequelize } = require('../config/database');
-
 module.exports = (sequelize, DataTypes) => {
-    var Livros = sequelize.define('livros', {
+    const Livros = sequelize.define('Livros', {
         id: {
             type: DataTypes.BIGINT,
             primaryKey: true,
@@ -13,6 +11,9 @@ module.exports = (sequelize, DataTypes) => {
         description: {
             type: DataTypes.STRING
         }
-    }, { timestamps: false });
+    }, {
+        timestamps: false
+    });
+
     return Livros;
-}
+};

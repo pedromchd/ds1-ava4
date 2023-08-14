@@ -4,6 +4,7 @@
   "description": "My first middleware server",
   "main": "server-middleware.js",
   "scripts": {
+    "start": "node server-middleware.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [

@@ -1,12 +1,14 @@
 const express = require('express');
-const router = express.Router();
 const { check } = require('express-validator');
-var myController = require('../controllers/mycontroller');
+const router = express.Router();
+const myController = require('../controllers/myController');
 
-let validatorForm = [
+// Validator middleware
+const validatorForm = [
     check('title').isLength({ min: 5 }).withMessage('This title is too short')
 ];
 
+// Routes
 router.get('/', validatorForm, myController.showForm);
 router.post('/', validatorForm, myController.save);
 router.get('/show', myController.showResult);

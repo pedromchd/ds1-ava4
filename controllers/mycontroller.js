@@ -2,6 +2,11 @@ const { sequelize, Sequelize } = require('../config/database');
 
 const livrosModel = require('../models/livros')(sequelize, Sequelize);
 
+// validator
+const { validationResult } = require('express-validator');
+
+// function to make suitable validation to attached as a middleware to routers file
+
 exports.showForm = (req, res) => {
     res.render('myform', { layout: false });
 }
@@ -9,6 +14,7 @@ exports.showForm = (req, res) => {
 exports.edit = (req, res) => {
     const id_param = req.params.id;
     livrosModel.findByPK(id_param).then(results => {
+        //console.log('results'+results.json)
         res.render('myformedit', { layout: false, id: id_param, resultado: results });
     }).catch(err => {
         console.log('Error' + err);
@@ -31,18 +37,25 @@ exports.update = (req, res) => {
         res.redirect('/show');
     }).catch(err => {
         res.status(500).send({
-            message: 'Erorr updating.'
+            message: 'Error updating.'
         });
     });
 }
 
 exports.save = (req, res) => {
+    const errors = validationResult(req)
+    if (!errors.isEmpty()) {
+        req.session.errors = errors.array()
+        return res.redirect('/')
+    }
     const bookSetData = {
         title: req.body.title,
         description: req.body.description
     };
     livrosModel.create(bookSetData).then(data => {
         console.log('Data saved');
+        req.flash('success_msg', 'Data saved successful.');
+        req.session.errors = null;
         res.redirect('/');
     }).catch(err => {
         console.log('Error' + err);
@@ -50,22 +63,23 @@ exports.save = (req, res) => {
 }
 
 exports.delete = (req, res) => {
-    console.log('Elemento' + req.params.id);
+    console.log('Elemento:' + req.params.id);
     const id_param = req.params.id;
     livrosModel.destroy({
         where: { id: id_param }
     }).then(result => {
         if (!result) {
-            req.status(400).send({
+            req.status(400).json({
                 message: 'An error ocurred.'
             });
         }
         res.redirect('/show');
     }).catch(err => {
-        res.status(500).send({
+        res.status(500).json({
             message: 'Could not delete object.'
         });
-    });
+        console.log(err);
+    }); // then
 }
 
 exports.showResult = (req, res) => {

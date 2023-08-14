@@ -4,6 +4,9 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const app = express();
 
+const flash = require('connect-flash');
+const session = require('express-session');
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -20,8 +23,26 @@ app.engine('handlebars', handlebars.engine({
 	handlebars: allowInsecurePrototypeAccess(handlebars_mod)
 }));
 
+
+// flash data settings
+app.use(session({
+	secret: 'a_any_key_for_this_project',
+	resave: false,
+	saveUninitialized: false
+}))
+app.use(flash())
+
+// view settings
 app.set('views', path.join('./views'));
 app.set('view engine', 'handlebars');
+
+// middlewere to treat flash messages
+app.use((req, res, next) => {
+	res.locals.success_msg = req.flash('success_msg')
+	res.locals.error_msg = req.flash('error_msg')
+	res.locals.errors = req.session.errors
+	next()
+})
 
 app.use('/users', (req, res, next) => {
 	console.log('will run before users route');

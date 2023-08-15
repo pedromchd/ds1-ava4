@@ -9,11 +9,11 @@ const validatorForm = [
 ];
 
 // Routes
-router.get('/', validatorForm, myController.showForm);
-router.post('/', validatorForm, myController.save);
-router.get('/show', myController.showResult);
-router.get('/delete/:id', myController.delete);
+router.get('/', validatorForm, myController.add);
+router.post('/', validatorForm, myController.create);
+router.get('/show', myController.show);
 router.get('/edit/:id', myController.edit);
 router.post('/edit/:id', myController.update);
+router.get('/delete/:id', myController.delete);
 
 module.exports = router;

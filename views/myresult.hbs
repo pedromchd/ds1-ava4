@@ -1,23 +1,36 @@
-<table class="table">
-    <thead>
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+    {{!-- <script src="https://cdn.tailwindcss.com"></script> --}}
+</head>
+
+<body>
+    <table>
         <tr>
-            <th scope="col">#</th>
-            <th scope="col">Title</th>
-            <th scope="col">Description</th>
-            <th scope="col">Actions</th>
+            <th>#</th>
+            <th>Nome</th>
+            <th>Salário bruto</th>
+            <th>Departamento</th>
+            <th>Opções</th>
         </tr>
-    </thead>
-    <tbody>
-        {{#each resultado}}
+        {{#each results}}
         <tr>
             <td>{{id}}</td>
-            <td>{{title}}</td>
-            <td>{{description}}</td>
+            <td>{{nome}}</td>
+            <td>{{salario_bruto}}</td>
+            <td>{{departamento}}</td>
             <td>
-                <a href="/edit/{{id}}" class="btn btn-primary">Edit</a>
-                <a href="/delete/{{id}}" class="btn btn-danger">Delete</a>
+                <a href="/edit/{{id}}">Editar</a>
+                <a href="/delete/{{id}}" onclick="return confirm('Deletar empregado?')">Deletar</a>
             </td>
         </tr>
         {{/each}}
-    </tbody>
-</table>
+    </table>
+    <a href="/">Adicionar empregado</a>
+</body>
+
+</html>

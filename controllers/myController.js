@@ -18,15 +18,15 @@ exports.create = (req, res) => {
 
 exports.show = async (req, res) => {
     results = await Empregado.findAll({
-        order: [['title', 'ASC']]
+        order: [['nome', 'ASC']]
     });
     res.render('myresult', { results: results });
 };
 
 exports.edit = async (req, res) => {
     const id = req.params.id;
-    const results = await Empregado.findByPk(id);
-    res.render('myformedit', { layout: false, id: id, results: results });
+    const result = await Empregado.findByPk(id);
+    res.render('myformedit', { layout: false, id: id, result: result });
 };
 
 exports.update = (req, res) => {

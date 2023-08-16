@@ -32,16 +32,16 @@ CREATE TABLE `empregado` (
   `nome` varchar(255) NOT NULL,
   `salario_bruto` decimal(10,2) NOT NULL,
   `departamento` enum('1','2','3','4') NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Índices para tabelas despejadas
 --
 
 --
--- Índices para tabela `empregado`
+-- Índices para tabela `empregados`
 --
-ALTER TABLE `empregado`
+ALTER TABLE `empregados`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -49,9 +49,9 @@ ALTER TABLE `empregado`
 --
 
 --
--- AUTO_INCREMENT de tabela `empregado`
+-- AUTO_INCREMENT de tabela `empregados`
 --
-ALTER TABLE `empregado`
+ALTER TABLE `empregados`
   MODIFY `id` int NOT NULL AUTO_INCREMENT;
 COMMIT;
 

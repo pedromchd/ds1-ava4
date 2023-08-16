@@ -24,10 +24,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `empregado`
+-- Estrutura da tabela `empregados`
 --
 
-CREATE TABLE `empregado` (
+CREATE TABLE `empregados` (
   `id` int NOT NULL,
   `nome` varchar(255) NOT NULL,
   `salario_bruto` decimal(10,2) NOT NULL,

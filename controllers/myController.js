@@ -1,9 +1,8 @@
-const { validationResult } = require('express-validator');
 const { sequelize, Sequelize } = require('../config/database');
 const Empregado = require('../models/Empregado')(sequelize, Sequelize);
 
 exports.add = (req, res) => {
-    res.render('myform', { layout: false });
+    res.render('myform');
 };
 
 exports.create = (req, res) => {
@@ -18,7 +17,7 @@ exports.create = (req, res) => {
 
 exports.show = async (req, res) => {
     results = await Empregado.findAll({
-        order: [['nome', 'ASC']]
+        order: [['id', 'ASC']]
     });
     res.render('myresult', { results: results });
 };
@@ -26,7 +25,7 @@ exports.show = async (req, res) => {
 exports.edit = async (req, res) => {
     const id = req.params.id;
     const result = await Empregado.findByPk(id);
-    res.render('myformedit', { layout: false, id: id, result: result });
+    res.render('myformedit', { id: id, result: result });
 };
 
 exports.update = (req, res) => {

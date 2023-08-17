@@ -28,7 +28,7 @@ O cálculo do salário líquido envolve os descontos de INSS e IRRF (Imposto de 
 
 ### INSS (Instituto Nacional do Seguro Social)
 
-O INSS é calculado sobre o salário bruto do trabalhador e tem alíquotas progressivas. Os valores das alíquotas são os seguintes:
+O INSS é calculado sobre o salário bruto do trabalhador e tem alíquotas progressivas. Os valores atualizados das alíquotas do INSS são os seguintes:
 
 - 7,5%: para salários de até R$ 1.320,00;
 - 9%: para salários entre R$ 1.320,01 e R$ 2.571,29;
@@ -39,25 +39,25 @@ O cálculo do INSS é feito multiplicando o salário bruto pela alíquota corres
 
 ### IRRF (Imposto de Renda Retido na Fonte)
 
-O cálculo do IRRF permanece baseado na tabela de alíquotas que varia de acordo com a faixa salarial. A tabela de alíquotas do IRRF é a seguinte:
+O cálculo do IRRF permanece baseado na tabela de alíquotas que varia de acordo com a faixa salarial. A tabela de alíquotas do IRRF, com os valores atualizados, é a seguinte:
 
-| Base de Cálculo mensal (R$) | Alíquota (%) | Dedução (R$) |
-|-----------------------------|--------------|--------------|
-| Até 2.112,00                | Isento       | 0,00         |
-| De 2.112,01 até 2.826,65    | 7,5          | 158,40       |
-| De 2.826,66 até 3.751,05    | 15           | 370,40       |
-| De 3.751,06 até 4.664,68    | 22,5         | 651,73       |
-| Acima de 4.664,68           | 27,5         | 884,96       |
+| Base de Cálculo mensal (R$) | Alíquota (%) |
+|-----------------------------|--------------|
+| Até 2.112,00                | Isento       |
+| De 2.112,01 até 2.826,65    | 7,5          |
+| De 2.826,66 até 3.751,05    | 15           |
+| De 3.751,06 até 4.664,68    | 22,5         |
+| Acima de 4.664,68           | 27,5         |
 
-O cálculo do IRRF envolve aplicar a alíquota correspondente a cada faixa sobre a parcela do salário que se enquadra naquela faixa. Por exemplo, considerando a tabela com as deduções, para um salário de R$ 5.000:
+O cálculo do IRRF envolve aplicar a alíquota correspondente a cada faixa sobre a parcela do salário que se enquadra naquela faixa. Por exemplo, para um salário de R$ 5.000:
 
 - Isento até R$ 2.112,00;
-- 7,5% sobre R$ 714,65 (R$ 2.826,65 - R$ 2.112,00) com dedução de R$ 158,40;
-- 15% sobre R$ 924,40 (R$ 3.751,05 - R$ 2.826,65) com dedução de R$ 370,40;
-- 22,5% sobre R$ 913,63 (R$ 4.664,68 - R$ 3.751,05) com dedução de R$ 651,73;
-- 27,5% sobre R$ 335,32 (R$ 5.000 - R$ 4.664,68) com dedução de R$ 884,96.
+- 7,5% sobre R$ 714,65 (R$ 2.826,65 - R$ 2.112,00);
+- 15% sobre R$ 924,40 (R$ 3.751,05 - R$ 2.826,65);
+- 22,5% sobre R$ 913,36 (R$ 4.664,68 - R$ 3.751,05);
+- 27,5% sobre R$ 335,32 (R$ 5.000 - R$ 4.664,68).
 
-Somando as alíquotas aplicadas e subtraindo as deduções correspondentes, você obterá o valor total do IRRF.
+Somando as alíquotas aplicadas, você obterá o valor total do IRRF.
 
 ### Salário Líquido
 

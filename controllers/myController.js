@@ -5,13 +5,13 @@ exports.add = (req, res) => {
     res.render('myform');
 };
 
-exports.create = (req, res) => {
+exports.create = async (req, res) => {
     const data = {
         nome: req.body.nome,
         salario_bruto: req.body.salario_bruto,
         departamento: req.body.departamento
     }
-    Empregado.create(data);
+    await Empregado.create(data);
     res.redirect('/show');
 };
 
@@ -28,19 +28,19 @@ exports.edit = async (req, res) => {
     res.render('myformedit', { id: id, result: result });
 };
 
-exports.update = (req, res) => {
+exports.update = async (req, res) => {
     const id = req.params.id;
     const data = {
         nome: req.body.nome,
         salario_bruto: req.body.salario_bruto,
         departamento: req.body.departamento
     }
-    Empregado.update(data, { where: { id: id } });
+    await Empregado.update(data, { where: { id: id } });
     res.redirect('/show');
 };
 
-exports.delete = (req, res) => {
+exports.delete = async (req, res) => {
     const id = req.params.id;
-    Empregado.destroy({ where: { id: id } });
+    await Empregado.destroy({ where: { id: id } });
     res.redirect('/show');
 };

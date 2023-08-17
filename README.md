@@ -49,7 +49,7 @@ O cálculo do IRRF permanece baseado na tabela de alíquotas que varia de acordo
 | De 3.751,06 até 4.664,68    | 22,5         | 651,73       |
 | Acima de 4.664,68           | 27,5         | 884,96       |
 
-O cálculo do IRRF envolve aplicar a alíquota correspondente a cada faixa sobre a parcela do salário que se enquadra naquela faixa. Por exemplo, considerando a nova tabela com as deduções, para um salário de R$ 5.000:
+O cálculo do IRRF envolve aplicar a alíquota correspondente a cada faixa sobre a parcela do salário que se enquadra naquela faixa. Por exemplo, considerando a tabela com as deduções, para um salário de R$ 5.000:
 
 - Isento até R$ 2.112,00;
 - 7,5% sobre R$ 714,65 (R$ 2.826,65 - R$ 2.112,00) com dedução de R$ 158,40;

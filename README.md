@@ -2,15 +2,15 @@
 
 Neste projeto, vamos desenvolver um CRUD mínimo para lidar com os seguintes campos em uma tabela de empregados:
 
-- **id**: inteiro auto incrementado
-- **nome**: string
-- **salario bruto**: double
-- **departamento**: inteiro
+- **id**: int a.i.
+- **nome**: varchar
+- **salario_bruto**: decimal
+- **departamento**: enum
 
 Os departamentos disponíveis são:
 1. Administrativo
 2. Designer
-3. Contabil
+3. Contabilidade
 4. Fábrica
 
 ## Funcionalidades do CRUD
@@ -18,7 +18,7 @@ Os departamentos disponíveis são:
 O CRUD irá incluir as seguintes funcionalidades:
 
 1. Criar um novo empregado com informações como nome, salário bruto e departamento.
-2. Ler as informações de um empregado, incluindo id, nome, salário bruto, SALARIO LIQUIDO e a descrição do departamento.
+2. Ler as informações de um empregado, incluindo id, nome, salário bruto, SALÁRIO LÍQUIDO e a descrição do departamento.
 3. Atualizar as informações de um empregado existente.
 4. Deletar um empregado do banco de dados.
 

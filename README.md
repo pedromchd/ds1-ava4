@@ -24,7 +24,7 @@ O CRUD irá incluir as seguintes funcionalidades:
 
 ## Cálculo do Salário Líquido
 
-O cálculo do salário líquido envolve os descontos de INSS e IRRF (Imposto de Renda Retido na Fonte). Vamos detalhar cada um deles:
+O cálculo do salário líquido envolve os descontos de INSS, dedução mensal por dependentes e IRRF. Vamos detalhar cada um deles:
 
 ### INSS (Instituto Nacional do Seguro Social)
 
@@ -37,33 +37,23 @@ O INSS é calculado sobre o salário bruto do trabalhador e tem alíquotas progr
 
 O cálculo do INSS é feito multiplicando o salário bruto pela alíquota correspondente.
 
+### Dedução mensal por dependente
+
+Além das alíquotas do INSS e do IRRF, é importante considerar a dedução mensal por dependente. Cada dependente acrescenta um valor à base de cálculo do IRRF, reduzindo assim o valor do imposto a pagar. O valor da dedução mensal por dependente é R$ 189,59. Isso significa que esse valor será subtraído da base de cálculo do IRRF para cada dependente que o contribuinte possua.
+
 ### IRRF (Imposto de Renda Retido na Fonte)
 
-O cálculo do IRRF permanece baseado na tabela de alíquotas que varia de acordo com a faixa salarial. A tabela de alíquotas do IRRF, com os valores atualizados, é a seguinte:
+O cálculo do IRRF é baseado em uma tabela de alíquotas que varia de acordo com a faixa salarial. A tabela de alíquotas do IRRF, com os valores atualizados, é a seguinte:
 
-| Base de Cálculo mensal (R$) | Alíquota (%) |
-|-----------------------------|--------------|
-| Até 2.112,00                | Isento       |
-| De 2.112,01 até 2.826,65    | 7,5          |
-| De 2.826,66 até 3.751,05    | 15           |
-| De 3.751,06 até 4.664,68    | 22,5         |
-| Acima de 4.664,68           | 27,5         |
+| Base de Cálculo mensal (R$) | Alíquota (%) | Dedução (R$) |
+|-----------------------------|--------------|--------------|
+| Até 2.112,00                | Isento       | Isento       |
+| De 2.112,01 até 2.826,65    | 7,5          | 158,40       |
+| De 2.826,66 até 3.751,05    | 15           | 370,40       |
+| De 3.751,06 até 4.664,68    | 22,5         | 651,73       |
+| Acima de 4.664,68           | 27,5         | 884,96       |
 
-O cálculo do IRRF envolve aplicar a alíquota correspondente a cada faixa sobre a parcela do salário que se enquadra naquela faixa. Por exemplo, para um salário de R$ 5.000:
-
-- Isento até R$ 2.112,00;
-- 7,5% sobre R$ 714,65 (R$ 2.826,65 - R$ 2.112,00);
-- 15% sobre R$ 924,40 (R$ 3.751,05 - R$ 2.826,65);
-- 22,5% sobre R$ 913,36 (R$ 4.664,68 - R$ 3.751,05);
-- 27,5% sobre R$ 335,32 (R$ 5.000 - R$ 4.664,68).
-
-Somando as alíquotas aplicadas, você obterá o valor total do IRRF.
-
-### Salário Líquido
-
-Finalmente, o salário líquido é calculado subtraindo o valor do INSS e do IRRF do salário bruto:
-
-Salário Líquido = Salário Bruto - INSS - IRRF
+O cálculo do IRRF envolve aplicar a alíquota correspondente a cada faixa sobre a parcela da base de cálculo que se enquadra naquela faixa. A base de cálculo é obtida subtraindo do salário bruto os descontos referentes ao INSS e à dedução por dependente. Após a aplicação da alíquota, é subtraído o valor da dedução correspondente. Somando os valores resultantes para cada faixa, você obterá o valor total do IRRF.
 
 ## Perguntas a serem respondidas
 

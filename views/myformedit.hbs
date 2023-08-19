@@ -18,10 +18,10 @@
         <select name="departamento" id="departamento">
             <option value="1">Administrativo</option>
             <option value="2">Designer</option>
-            <option value="3">Contábil</option>
+            <option value="3">Contabilidade</option>
             <option value="4">Fábrica</option>
             <script>
-                document.forms[0].departamento.value = {{result.departamento}};
+                document.forms[0].departamento.value = {{result.departamento.cod}};
             </script>
         </select>
         <button type="submit">Enviar</button>

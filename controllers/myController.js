@@ -16,7 +16,7 @@ exports.create = async (req, res) => {
 };
 
 exports.show = async (req, res) => {
-    results = await Empregado.findAll({
+    const results = await Empregado.findAll({
         order: [['id', 'ASC']]
     });
     res.render('myresult', { results: results });

@@ -44,5 +44,7 @@ function calcularSalarioLiquido(salarioBruto) {
     // Cálculo do salário líquido
     const salarioLiquido = salarioBruto - descontoINSS - descontoIRRF;
 
-    return salarioLiquido;
+    return salarioLiquido.toFixed(2);
 }
+
+module.exports = { calcularSalarioLiquido };

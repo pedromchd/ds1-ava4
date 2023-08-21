@@ -15,13 +15,25 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Handlebars configuration
+const helpers = require('./helpers/helpers'); // Import the helpers
+const { sequelize } = require('./config/database');
 app.engine('hbs', handlebars.engine({
     defaultLayout: false,
     handlebars: allowInsecurePrototypeAccess(handlebars_mod),
-    extname: '.hbs' // Set the extension to .hbs
+    extname: '.hbs', // Set the extension to .hbs
+    helpers: helpers // Register the imported helpers
 }));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+
+// Sync the models with the database
+sequelize.sync()
+    .then(() => {
+        console.log('Database synced sucessfully');
+    })
+    .catch((error) => {
+        console.error('Error syncing database:', error);
+    });
 
 // Routes
 app.use(appRoutes);

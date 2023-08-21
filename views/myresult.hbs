@@ -23,9 +23,9 @@
             <tr>
                 <td>{{id}}</td>
                 <td>{{nome}}</td>
-                <td>{{salario_bruto}}</td>
-                <td>{{salario_liquido}}</td>
-                <td>{{departamento.nome}}</td>
+                <td>{{parseBRL salario_bruto}}</td>
+                <td>{{parseBRL salario_liquido}}</td>
+                <td>{{nomeDepartamento}}</td>
                 <td>
                     <a href="/edit/{{id}}">Editar</a>
                     <a href="/delete/{{id}}" onclick="return confirm('Deletar empregado?')">Deletar</a>

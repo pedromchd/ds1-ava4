@@ -17,22 +17,27 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.VIRTUAL,
             get() {
                 return calcularSalarioLiquido(this.salario_bruto);
+            },
+            set(value) {
+                throw new Error('Do not try to set the `salario_liquido` value!');
             }
         },
         departamento: {
-            type: DataTypes.ENUM('1', '2', '3', '4'),
-            get() {
-                const depto = [
-                    { cod: '1', nome: 'Administrativo' },
-                    { cod: '2', nome: 'Designer' },
-                    { cod: '3', nome: 'Contabilidade' },
-                    { cod: '4', nome: 'Fábrica' },
-                ];
-                return depto[this.getDataValue('departamento') - 1];
-            }
+            type: DataTypes.ENUM('1', '2', '3', '4')
         }
     }, {
-        timestamps: false
+        timestamps: false,
+        getterMethods: {
+            nomeDepartamento() {
+                const departamentos = [
+                    'Administrativo',
+                    'Designer',
+                    'Contabilidade',
+                    'Fábrica'
+                ];
+                return departamentos.at(parseInt(this.departamento) - 1);
+            }
+        }
     });
 
     return Empregados;

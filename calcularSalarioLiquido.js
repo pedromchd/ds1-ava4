@@ -1,5 +1,5 @@
 function calcularSalarioLiquido(salarioBruto) {
-    // Tabela de alíquotas do INSS
+    // Tabelas de alíquotas do INSS e IRRF
     const aliquotasINSS = [
         { limite: 1320, aliquota: 0.075 },
         { limite: 2571.29, aliquota: 0.09 },
@@ -7,7 +7,6 @@ function calcularSalarioLiquido(salarioBruto) {
         { limite: 7507.49, aliquota: 0.14 }
     ];
 
-    // Tabela de alíquotas do IRRF
     const aliquotasIRRF = [
         { limite: 2112, aliquota: 0 },
         { limite: 2826.65, aliquota: 0.075 },
@@ -16,32 +15,22 @@ function calcularSalarioLiquido(salarioBruto) {
         { limite: Infinity, aliquota: 0.275 }
     ];
 
-    // Cálculo do INSS
-    let descontoINSS = 0;
-    for (const aliquota of aliquotasINSS) {
-        if (salarioBruto <= aliquota.limite) {
-            descontoINSS = salarioBruto * aliquota.aliquota;
-            break;
-        } else {
-            descontoINSS = aliquota.limite * aliquota.aliquota;
+    // Cálculo do desconto de acordo com a tabela de alíquotas
+    function calcularDesconto(valor, aliquotas) {
+        for (const aliquota of aliquotas) {
+            if (valor <= aliquota.limite) {
+                return valor * aliquota.aliquota;
+            } else {
+                valor = aliquota.limite * aliquota.aliquota;
+            }
         }
+        return 0;
     }
 
-    // Cálculo da Base de Cálculo para o IRRF
+    const descontoINSS = calcularDesconto(salarioBruto, aliquotasINSS);
     const baseCalculoIRRF = salarioBruto - descontoINSS;
+    const descontoIRRF = calcularDesconto(baseCalculoIRRF, aliquotasIRRF);
 
-    // Cálculo do IRRF
-    let descontoIRRF = 0;
-    for (const aliquota of aliquotasIRRF) {
-        if (baseCalculoIRRF <= aliquota.limite) {
-            descontoIRRF = baseCalculoIRRF * aliquota.aliquota;
-            break;
-        } else {
-            descontoIRRF = aliquotasIRRF.at(-1).limite * aliquotasIRRF.at(-1).aliquota;
-        }
-    }
-
-    // Cálculo do salário líquido
     const salarioLiquido = salarioBruto - descontoINSS - descontoIRRF;
 
     return salarioLiquido.toFixed(2);

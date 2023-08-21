@@ -6,41 +6,58 @@ exports.add = (req, res) => {
 };
 
 exports.create = async (req, res) => {
-    const data = {
-        nome: req.body.nome,
-        salario_bruto: req.body.salario_bruto,
-        departamento: req.body.departamento
+    const { nome, salario_bruto, departamento } = req.body;
+    try {
+        await Empregado.create({ nome, salario_bruto, departamento });
+        res.redirect('/show');
+    } catch (error) {
+        console.error('Error creating employee:', error);
+        res.redirect('/show');
     }
-    await Empregado.create(data);
-    res.redirect('/show');
 };
 
 exports.show = async (req, res) => {
-    const results = await Empregado.findAll({
-        order: [['id', 'ASC']]
-    });
-    res.render('myresult', { results: results });
+    try {
+        const results = await Empregado.findAll({
+            order: [['id', 'ASC']]
+        });
+        res.render('myresult', { results });
+    } catch (error) {
+        console.error('Error fetching employees:', error);
+        res.redirect('/');
+    }
 };
 
 exports.edit = async (req, res) => {
     const id = req.params.id;
-    const result = await Empregado.findByPk(id);
-    res.render('myformedit', { id: id, result: result });
+    try {
+        const result = await Empregado.findByPk(id);
+        res.render('myformedit', { id, result });
+    } catch (error) {
+        console.error('Error editing employee:', error);
+        res.redirect('/show');
+    }
 };
 
 exports.update = async (req, res) => {
     const id = req.params.id;
-    const data = {
-        nome: req.body.nome,
-        salario_bruto: req.body.salario_bruto,
-        departamento: req.body.departamento
+    const { nome, salario_bruto, departamento } = req.body;
+    try {
+        await Empregado.update({ nome, salario_bruto, departamento }, { where: { id } });
+        res.redirect('/show');
+    } catch (error) {
+        console.error('Error updating employee:', error);
+        res.redirect('/show');
     }
-    await Empregado.update(data, { where: { id: id } });
-    res.redirect('/show');
 };
 
 exports.delete = async (req, res) => {
     const id = req.params.id;
-    await Empregado.destroy({ where: { id: id } });
-    res.redirect('/show');
+    try {
+        await Empregado.destroy({ where: { id } });
+        res.redirect('/show');
+    } catch (error) {
+        console.error('Error deleting employee:', error);
+        res.redirect('/show');
+    }
 };

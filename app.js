@@ -11,6 +11,9 @@ const appRoutes = require('./routes/appRoutes');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+// Serve static files from the 'public' directory
+app.use(express.static(path.join(__dirname, 'public')));
+
 // Handlebars configuration
 app.engine('hbs', handlebars.engine({
     defaultLayout: false,

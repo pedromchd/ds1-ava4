@@ -4,35 +4,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Results</title>
-    {{!-- <script src="https://cdn.tailwindcss.com"></script> --}}
+    <title>Visualizar empregados</title>
+    <link rel="stylesheet" href="/styles.css">
 </head>
 
 <body>
-    <table>
-        <tr>
-            <th>#</th>
-            <th>Nome</th>
-            <th>Salário bruto</th>
-            <th>Salário líquido</th>
-            <th>Departamento</th>
-            <th>Opções</th>
-        </tr>
-        {{#each results}}
-        <tr>
-            <td>{{id}}</td>
-            <td>{{nome}}</td>
-            <td>{{salario_bruto}}</td>
-            <td>{{salario_liquido}}</td>
-            <td>{{departamento.nome}}</td>
-            <td>
-                <a href="/edit/{{id}}">Editar</a>
-                <a href="/delete/{{id}}" onclick="return confirm('Deletar empregado?')">Deletar</a>
-            </td>
-        </tr>
-        {{/each}}
-    </table>
-    <a href="/">Adicionar empregado</a>
+    <main>
+        <table>
+            <tr>
+                <th>#</th>
+                <th>Nome</th>
+                <th>Salário bruto</th>
+                <th>Salário líquido</th>
+                <th>Departamento</th>
+                <th>Opções</th>
+            </tr>
+            {{#each results}}
+            <tr>
+                <td>{{id}}</td>
+                <td>{{nome}}</td>
+                <td>{{salario_bruto}}</td>
+                <td>{{salario_liquido}}</td>
+                <td>{{departamento.nome}}</td>
+                <td>
+                    <a href="/edit/{{id}}">Editar</a>
+                    <a href="/delete/{{id}}" onclick="return confirm('Deletar empregado?')">Deletar</a>
+                </td>
+            </tr>
+            {{/each}}
+        </table>
+        <a href="/">Adicionar empregado</a>
+    </main>
 </body>
 
 </html>

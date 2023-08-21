@@ -4,26 +4,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add</title>
-    {{!-- <script src="https://cdn.tailwindcss.com"></script> --}}
+    <title>Adicionar empregado</title>
+    <link rel="stylesheet" href="/styles.css">
 </head>
 
 <body>
-    <form action="/" method="post">
-        <label for="nome">Nome:</label>
-        <input type="text" name="nome" id="nome">
-        <label for="salario_bruto">Salário bruto:</label>
-        <input type="number" name="salario_bruto" id="salario_bruto" step="0.01">
-        <label for="departamento">Departamento:</label>
-        <select name="departamento" id="departamento">
-            <option value="1">Administrativo</option>
-            <option value="2">Designer</option>
-            <option value="3">Contabilidade</option>
-            <option value="4">Fábrica</option>
-        </select>
-        <button type="submit">Enviar</button>
-        <a href="/show">Mostrar empregados</a>
-    </form>
+    <main>
+        <form action="/" method="post">
+            <label for="nome">Nome:</label>
+            <input type="text" name="nome" id="nome">
+            <label for="salario_bruto">Salário bruto:</label>
+            <input type="number" name="salario_bruto" id="salario_bruto" step="0.01">
+            <label for="departamento">Departamento:</label>
+            <select name="departamento" id="departamento">
+                <option value="1">Administrativo</option>
+                <option value="2">Designer</option>
+                <option value="3">Contabilidade</option>
+                <option value="4">Fábrica</option>
+            </select>
+            <button type="submit">Enviar</button>
+            <a href="/show">Mostrar empregados</a>
+        </form>
+    </main>
 </body>
 
 </html>

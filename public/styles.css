@@ -1,0 +1,33 @@
+body {
+    margin: unset;
+    height: 100vmin;
+    display: grid;
+    place-items: center;
+    background: #b4b4b4;
+}
+
+main {
+    background: #ffffff;
+    padding: 1rem;
+    border-radius: .5rem;
+    box-shadow: .25rem .25rem .5rem;
+}
+
+main:not(:has(table)) {
+    width: min-content;
+}
+
+form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: .25rem;
+    place-items: start;
+}
+
+table, th, td {
+    border: 1px solid #000000;
+}
+
+a, a:visited {
+    color: #0000ff;
+}

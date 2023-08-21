@@ -17,9 +17,6 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.VIRTUAL,
             get() {
                 return calcularSalarioLiquido(this.salario_bruto);
-            },
-            set(value) {
-                throw new Error('Do not try to set the `salario_liquido` value!');
             }
         },
         departamento: {

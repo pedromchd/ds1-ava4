@@ -7,57 +7,32 @@ exports.add = (req, res) => {
 
 exports.create = async (req, res) => {
     const { nome, salario_bruto, departamento } = req.body;
-    try {
-        await Empregado.create({ nome, salario_bruto, departamento });
-        res.redirect('/show');
-    } catch (error) {
-        console.error('Error creating employee:', error);
-        res.redirect('/show');
-    }
+    await Empregado.create({ nome, salario_bruto, departamento });
+    res.redirect('/show');
 };
 
 exports.show = async (req, res) => {
-    try {
-        const results = await Empregado.findAll({
-            order: [['id', 'ASC']]
-        });
-        res.render('myresult', { results });
-    } catch (error) {
-        console.error('Error fetching employees:', error);
-        res.redirect('/');
-    }
+    const results = await Empregado.findAll({
+        order: [['id', 'ASC']]
+    });
+    res.render('myresult', { results });
 };
 
 exports.edit = async (req, res) => {
     const id = req.params.id;
-    try {
-        const result = await Empregado.findByPk(id);
-        res.render('myformedit', { id, result });
-    } catch (error) {
-        console.error('Error editing employee:', error);
-        res.redirect('/show');
-    }
+    const result = await Empregado.findByPk(id);
+    res.render('myformedit', { id, result });
 };
 
 exports.update = async (req, res) => {
     const id = req.params.id;
     const { nome, salario_bruto, departamento } = req.body;
-    try {
-        await Empregado.update({ nome, salario_bruto, departamento }, { where: { id } });
-        res.redirect('/show');
-    } catch (error) {
-        console.error('Error updating employee:', error);
-        res.redirect('/show');
-    }
+    await Empregado.update({ nome, salario_bruto, departamento }, { where: { id } });
+    res.redirect('/show');
 };
 
 exports.delete = async (req, res) => {
     const id = req.params.id;
-    try {
-        await Empregado.destroy({ where: { id } });
-        res.redirect('/show');
-    } catch (error) {
-        console.error('Error deleting employee:', error);
-        res.redirect('/show');
-    }
+    await Empregado.destroy({ where: { id } });
+    res.redirect('/show');
 };

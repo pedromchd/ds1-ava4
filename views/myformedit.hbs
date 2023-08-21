@@ -8,9 +8,10 @@
     <link rel="stylesheet" href="/styles.css">
 </head>
 
-<body>
-    <main>
-        <form action="/edit/{{id}}" method="post">
+<body class="min-h-screen bg-slate-400 grid place-items-center">
+    <form action="/edit/{{id}}" method="post">
+        <fieldset class="p-5 rounded-xl bg-slate-200 grid grid-cols-2 gap-3 text-lg shadow-xl">
+            <legend class="text-xl font-semibold">Adicionar empregado</legend>
             <label for="nome">Nome:</label>
             <input type="text" name="nome" id="nome" value="{{result.nome}}">
             <label for="salario_bruto">Salário bruto:</label>
@@ -27,8 +28,8 @@
             </select>
             <button type="submit">Enviar</button>
             <a href="/show">Mostrar empregados</a>
-        </form>
-    </main>
+        </fieldset>
+    </form>
 </body>
 
 </html>

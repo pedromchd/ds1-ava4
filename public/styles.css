@@ -1,0 +1,35 @@
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    margin: unset;
+    min-height: 100vmin;
+    display: grid;
+    place-items: center;
+    background: #726e91;
+}
+
+form, table {
+    background: #c0b5ce;
+    padding: 1rem;
+    box-shadow: 0.25rem 0.25rem 0.5rem #000000aa;
+}
+
+form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+}
+
+table, th, td {
+    border-collapse: collapse;
+    border: 1px solid #000000;
+    padding: 1rem;
+}
+
+label, input, select, button, a {
+    outline: unset;
+    font-size: 1.1rem;
+    padding: 0.25rem;
+}

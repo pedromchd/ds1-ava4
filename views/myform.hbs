@@ -8,24 +8,21 @@
     <link rel="stylesheet" href="/styles.css">
 </head>
 
-<body class="min-h-screen bg-slate-400 grid place-items-center">
+<body>
     <form action="/" method="post">
-        <fieldset class="p-5 rounded-xl bg-slate-200 grid grid-cols-2 gap-3 text-lg shadow-xl">
-            <legend class="text-xl font-semibold">Adicionar empregado</legend>
-            <label for="nome">Nome:</label>
-            <input type="text" name="nome" id="nome">
-            <label for="salario_bruto">Salário bruto:</label>
-            <input type="number" name="salario_bruto" id="salario_bruto" step="0.01">
-            <label for="departamento">Departamento:</label>
-            <select name="departamento" id="departamento">
-                <option value="1">Administrativo</option>
-                <option value="2">Designer</option>
-                <option value="3">Contabilidade</option>
-                <option value="4">Fábrica</option>
-            </select>
-            <button type="submit">Enviar</button>
-            <a href="/show">Mostrar empregados</a>
-        </fieldset>
+        <label for="nome">Nome:</label>
+        <input type="text" name="nome" id="nome">
+        <label for="salario_bruto">Salário bruto:</label>
+        <input type="number" name="salario_bruto" id="salario_bruto" step="0.01">
+        <label for="departamento">Departamento:</label>
+        <select name="departamento" id="departamento">
+            <option value="1">Administrativo</option>
+            <option value="2">Designer</option>
+            <option value="3">Contabilidade</option>
+            <option value="4">Fábrica</option>
+        </select>
+        <button type="submit">Enviar</button>
+        <a href="/show">Mostrar empregados</a>
     </form>
 </body>
 

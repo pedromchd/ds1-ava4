@@ -8,33 +8,31 @@
     <link rel="stylesheet" href="/styles.css">
 </head>
 
-<body class="min-h-screen bg-slate-400 grid place-items-center">
-    <main class="p-5 rounded-xl bg-slate-200 flex flex-col items-center gap-2 text-lg shadow-xl">
-        <table>
-            <tr>
-                <th>#</th>
-                <th>Nome</th>
-                <th>Salário bruto</th>
-                <th>Salário líquido</th>
-                <th>Departamento</th>
-                <th>Opções</th>
-            </tr>
-            {{#each results}}
-            <tr>
-                <td>{{id}}</td>
-                <td>{{nome}}</td>
-                <td>{{parseBRL salario_bruto}}</td>
-                <td>{{parseBRL salario_liquido}}</td>
-                <td>{{nomeDepartamento}}</td>
-                <td>
-                    <a href="/edit/{{id}}">Editar</a>
-                    <a href="/delete/{{id}}" onclick="return confirm('Deletar empregado?')">Deletar</a>
-                </td>
-            </tr>
-            {{/each}}
-        </table>
-        <a href="/">Adicionar empregado</a>
-    </main>
+<body>
+    <table>
+        <tr>
+            <th>#</th>
+            <th>Nome</th>
+            <th>Salário bruto</th>
+            <th>Salário líquido</th>
+            <th>Departamento</th>
+            <th>Opções</th>
+        </tr>
+        {{#each results}}
+        <tr>
+            <td>{{id}}</td>
+            <td>{{nome}}</td>
+            <td>{{parseBRL salario_bruto}}</td>
+            <td>{{parseBRL salario_liquido}}</td>
+            <td>{{nomeDepartamento}}</td>
+            <td>
+                <a href="/edit/{{id}}">Editar</a>
+                <a href="/delete/{{id}}" onclick="return confirm('Deletar empregado?')">Deletar</a>
+            </td>
+        </tr>
+        {{/each}}
+    </table>
+    <a href="/">Adicionar empregado</a>
 </body>
 
 </html>

@@ -9,34 +9,43 @@
 </head>
 
 <body>
-    <table>
-        <tr>
-            <td colspan="6">
-                <a href="/">Adicionar empregado</a>
-            </td>
-        </tr>
-        <tr>
-            <th>#</th>
-            <th>Nome</th>
-            <th>Salário bruto</th>
-            <th>Salário líquido</th>
-            <th>Departamento</th>
-            <th>Opções</th>
-        </tr>
-        {{#each results}}
-        <tr>
-            <td>{{id}}</td>
-            <td>{{nome}}</td>
-            <td>{{parseBRL salario_bruto}}</td>
-            <td>{{parseBRL salario_liquido}}</td>
-            <td>{{nomeDepartamento}}</td>
-            <td>
-                <a href="/edit/{{id}}">Editar</a>
-                <a href="/delete/{{id}}" onclick="return confirm('Deletar empregado?')">Deletar</a>
-            </td>
-        </tr>
-        {{/each}}
-    </table>
+    <section>
+        <table>
+            <tr>
+                <td colspan="2">
+                    <a href="/">Adicionar empregado</a>
+                </td>
+                <td colspan="4">
+                    <form action="/show" method="post">
+                        <label for="search">Pesquisar por nome:</label>
+                        <input type="search" name="search" id="search">
+                        <button type="submit">Pesquisar</button>
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <th>#</th>
+                <th>Nome</th>
+                <th>Salário bruto</th>
+                <th>Salário líquido</th>
+                <th>Departamento</th>
+                <th>Opções</th>
+            </tr>
+            {{#each results}}
+            <tr>
+                <td>{{id}}</td>
+                <td>{{nome}}</td>
+                <td>{{parseBRL salario_bruto}}</td>
+                <td>{{parseBRL salario_liquido}}</td>
+                <td>{{nomeDepartamento}}</td>
+                <td>
+                    <a href="/edit/{{id}}">Editar</a>
+                    <a href="/delete/{{id}}" onclick="return confirm('Deletar empregado?')">Deletar</a>
+                </td>
+            </tr>
+            {{/each}}
+        </table>
+    </section>
 </body>
 
 </html>

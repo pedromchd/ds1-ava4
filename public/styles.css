@@ -10,13 +10,13 @@ body {
     background: #726e91;
 }
 
-form, table {
+section {
     background: #c0b5ce;
     padding: 1rem;
     box-shadow: 0.25rem 0.25rem 0.5rem #000000aa;
 }
 
-form {
+form section {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 0.5rem;

@@ -10,22 +10,24 @@
 
 <body>
     <form action="/edit/{{id}}" method="post">
-        <label for="nome">Nome:</label>
-        <input type="text" name="nome" id="nome" value="{{result.nome}}">
-        <label for="salario_bruto">Salário bruto:</label>
-        <input type="number" name="salario_bruto" id="salario_bruto" step="0.01" value="{{result.salario_bruto}}">
-        <label for="departamento">Departamento:</label>
-        <select name="departamento" id="departamento">
-            <option value="1">Administrativo</option>
-            <option value="2">Designer</option>
-            <option value="3">Contabilidade</option>
-            <option value="4">Fábrica</option>
-            <script>
-                document.forms[0].departamento.value = {{result.departamento}};
-            </script>
-        </select>
-        <button type="submit">Enviar</button>
-        <a href="/show">Mostrar empregados</a>
+        <section>
+            <label for="nome">Nome:</label>
+            <input type="text" name="nome" id="nome" value="{{result.nome}}">
+            <label for="salario_bruto">Salário bruto:</label>
+            <input type="number" name="salario_bruto" id="salario_bruto" step="0.01" value="{{result.salario_bruto}}">
+            <label for="departamento">Departamento:</label>
+            <select name="departamento" id="departamento">
+                <option value="1">Administrativo</option>
+                <option value="2">Designer</option>
+                <option value="3">Contabilidade</option>
+                <option value="4">Fábrica</option>
+                <script>
+                    document.forms[0].departamento.value = {{result.departamento}};
+                </script>
+            </select>
+            <button type="submit">Enviar</button>
+            <a href="/show">Mostrar empregados</a>
+        </section>
     </form>
 </body>
 

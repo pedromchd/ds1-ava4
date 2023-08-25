@@ -28,6 +28,11 @@ table, th, td {
     padding: 1rem;
 }
 
+table form {
+    display: inline-block;
+    margin-left: 3rem;
+}
+
 label, input, select, button, a {
     outline: unset;
     font-size: 1.1rem;

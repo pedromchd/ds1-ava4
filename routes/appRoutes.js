@@ -6,7 +6,6 @@ const myController = require('../controllers/myController');
 router.get('/', myController.add);
 router.post('/', myController.create);
 router.get('/show', myController.show);
-router.post('/show', myController.search);
 router.get('/edit/:id', myController.edit);
 router.post('/edit/:id', myController.update);
 router.get('/delete/:id', myController.delete);

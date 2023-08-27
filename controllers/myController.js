@@ -1,6 +1,5 @@
 const { sequelize, Sequelize } = require('../config/database');
 const Empregado = require('../models/Empregado')(sequelize, Sequelize);
-const Op = Sequelize.Op;
 
 exports.add = (req, res) => {
     res.render('myform');
@@ -13,22 +12,12 @@ exports.create = async (req, res) => {
 };
 
 exports.show = async (req, res) => {
+    const query = req.query.q ?? '';
     const results = await Empregado.findAll({
+        where: { nome: { [Sequelize.Op.substring]: query } },
         order: [['id', 'ASC']]
     });
-    res.render('myresult', { results });
-};
-
-exports.search = async (req, res) => {
-    const { search } = req.body;
-    const results = await Empregado.findAll({
-        where: {
-            nome: {
-                [Op.substring]: search
-            }
-        },
-    });
-    res.render('myresult', { search, results });
+    res.render('myresult', { query, results });
 };
 
 exports.edit = async (req, res) => {

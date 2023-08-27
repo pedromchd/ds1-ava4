@@ -26,8 +26,13 @@ form > section {
     gap: 0.5rem;
 }
 
-table, th, td {
+table {
+    width: 100%;
+    background: #dfdbe6;
     border-collapse: collapse;
+}
+
+table, th, td {
     border: 1px solid #000000;
     padding: 1rem;
 }

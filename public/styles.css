@@ -38,3 +38,7 @@ label, input, select, button, a {
     font-size: 1.1rem;
     padding: 0.25rem;
 }
+
+a, a:visited {
+    color: #5500aa;
+}

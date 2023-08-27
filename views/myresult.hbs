@@ -15,6 +15,14 @@
             <label for="q">Pesquisar por nome:</label>
             <input type="search" name="q" id="q" value="{{query}}">
             <button type="submit">Pesquisar</button>
+            <label for="order">Ordenar:</label>
+            <select name="order" id="order">
+                <option value="id-asc">ID (crescente)</option>
+                <option value="salario_bruto-desc">Maior salário</option>
+                <option value="salario_bruto-asc">Menor salário</option>
+                <option value="departamento-asc">Departamento</option>
+                <option value="count">Empregados/depto</option>
+            </select>
         </form>
         <table>
             <tr>

@@ -13,11 +13,24 @@ exports.create = async (req, res) => {
 
 exports.show = async (req, res) => {
     const query = req.query.q ?? '';
+    let [order, by] = ['id', 'ASC'];
+    if (req.query.order) {
+        if (req.query.order == 'count') {
+            res.redirect('/show/empregados-por-departamento');
+        } else {
+            [order, by] = req.query.order.split('-');
+        }
+    }
     const results = await Empregado.findAll({
         where: { nome: { [Sequelize.Op.substring]: query } },
-        order: [['id', 'ASC']]
+        order: [[order, by]]
     });
     res.render('myresult', { query, results });
+};
+
+exports.countDepto = async (req, res) => {
+    const [results, metadata] = await sequelize.query('SELECT `departamento`, COUNT(`departamento`) AS `no_deptos` FROM `Empregados` AS `Empregados` GROUP BY `departamento`');
+    res.render('countdepto', { results });
 };
 
 exports.edit = async (req, res) => {

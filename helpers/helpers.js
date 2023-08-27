@@ -6,6 +6,15 @@ const helpers = {
         });
 
         return BRL.format(value);
+    },
+    deptoNome: function (depto) {
+        const departamentos = [
+            'Administrativo',
+            'Designer',
+            'Contabilidade',
+            'Fábrica'
+        ];
+        return departamentos.at(parseInt(depto) - 1);
     }
 };
 

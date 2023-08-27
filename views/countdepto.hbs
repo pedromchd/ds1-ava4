@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizar empregados</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+    <section>
+        <a href="/">Adicionar empregado</a>
+        <a href="/show">Mostrar empregados</a>
+        <table>
+            <tr>
+                <th>Departamento</th>
+                <th>Empregados</th>
+            </tr>
+            {{#each results}}
+            <tr>
+                <td>{{deptoNome departamento}}</td>
+                <td>{{no_deptos}}</td>
+            </tr>
+            {{/each}}
+        </table>
+    </section>
+</body>
+
+</html>

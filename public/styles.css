@@ -10,13 +10,17 @@ body {
     background: #726e91;
 }
 
+body > section > * + * {
+    margin-top: 0.75rem;
+}
+
 section {
     background: #c0b5ce;
     padding: 1rem;
     box-shadow: 0.25rem 0.25rem 0.5rem #000000aa;
 }
 
-form section {
+form > section {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 0.5rem;
@@ -26,11 +30,6 @@ table, th, td {
     border-collapse: collapse;
     border: 1px solid #000000;
     padding: 1rem;
-}
-
-table form {
-    display: inline-block;
-    margin-left: 3rem;
 }
 
 label, input, select, button, a {

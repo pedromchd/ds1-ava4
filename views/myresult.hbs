@@ -10,17 +10,13 @@
 
 <body>
     <section>
+        <a href="/">Adicionar empregado</a>
+        <form action="/show" method="get">
+            <label for="q">Pesquisar por nome:</label>
+            <input type="search" name="q" id="q" value="{{query}}">
+            <button type="submit">Pesquisar</button>
+        </form>
         <table>
-            <tr>
-                <td colspan="6">
-                    <a href="/">Adicionar empregado</a>
-                    <form action="/show" method="get">
-                        <label for="q">Pesquisar por nome:</label>
-                        <input type="search" name="q" id="q" value="{{query}}">
-                        <button type="submit">Pesquisar</button>
-                    </form>
-                </td>
-            </tr>
             <tr>
                 <th>#</th>
                 <th>Nome</th>
